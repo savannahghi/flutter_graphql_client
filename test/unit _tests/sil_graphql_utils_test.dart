@@ -35,7 +35,8 @@ void main() {
       final String actualOtp = await SILGraphQlUtils.sendOtp(
           phoneNumber: '+25471234567',
           logTitle: 'send otp',
-          client: mockSilGraphQlClient);
+          client: mockSilGraphQlClient,
+          email: 'savannah@healthcloud.co.ke');
 
       /// verify
       expect(actualOtp, expectedOtp);

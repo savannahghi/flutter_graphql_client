@@ -8,6 +8,11 @@ import 'package:flutter/widgets.dart';
 
 import 'package:http/http.dart';
 
+import 'package:gql/language.dart' as lang;
+import 'package:gql/ast.dart' as ast;
+import 'package:sil_graphql_client/constants.dart';
+import 'package:source_span/source_span.dart';
+
 // import 'package:firebase_performance/firebase_performance.dart';
 
 /// [SILGraphQlClient] the main entry point client creation
@@ -47,8 +52,17 @@ class SILGraphQlClient extends BaseClient {
       uri is String ? Uri.parse(uri) : uri as Uri;
 
   bool _checkQueryString(String q) {
-    if (q.contains('query') || q.contains('mutation')) return true;
-    return false;
+    try {
+      String query = r'''''';
+      query += q;
+      // Parses graphql query string to check if its a valid graphql query
+      final ast.DocumentNode _ = lang.parseString(
+        query,
+      );
+      return true;
+    } on SourceSpanException catch (_) {
+      return false;
+    }
   }
 
   Future<Response> query(String queryString, Map<String, dynamic> variables,
@@ -62,31 +76,29 @@ class SILGraphQlClient extends BaseClient {
           'Expected variable to be of type Map<String,dynamic>');
     }
 
-    Request request = Request('POST', _fromUriOrString(this._endpoint));
+    Map<String, dynamic> bodyMap = <String, dynamic>{
+      'query': queryString,
+      'variables': variables,
+    };
 
-    Map<String, dynamic> bodyMap = <String, dynamic>{};
-    bodyMap['query'] = queryString;
-    bodyMap['variables'] = variables;
-    request.body = json.encode(bodyMap);
-    return await Response.fromStream(
-      await this.send(request).timeout(
-        Duration(seconds: 60),
-        onTimeout: () {
-          final String payload = json.encode(<String, dynamic>{
-            'statusCode': 408,
-            'error': 'Network connection unreliable. Please try again later.'
-          });
-          List<int> body = utf8.encode(payload);
+    return await this
+        .post(_fromUriOrString(this._endpoint), body: json.encode(bodyMap))
+        .timeout(
+      Duration(seconds: 60),
+      onTimeout: () {
+        final String payload = json.encode(<String, dynamic>{
+          'statusCode': 408,
+          'error': 'Network connection unreliable. Please try again later.'
+        });
 
-          return StreamedResponse(
-            ByteStream.fromBytes(body),
-            408,
-            headers: contentType == ContentType.json
-                ? this.requestHeaders
-                : this.fileRequestHeaders,
-          );
-        },
-      ),
+        return Response(
+          payload,
+          408,
+          headers: contentType == ContentType.json
+              ? this.requestHeaders
+              : this.fileRequestHeaders,
+        );
+      },
     );
   }
 
@@ -131,7 +143,7 @@ class SILGraphQlClient extends BaseClient {
 
     timer.stop();
 
-    print('Request duration : ${timer.elapsed.inMilliseconds} millisecondes');
+    //  print('Request duration : ${timer.elapsed.inMilliseconds} millisecondes');
 
     return response;
   }
@@ -146,8 +158,8 @@ class SILGraphQlClient extends BaseClient {
     Object error =
         body.containsKey('errors') != null ? body['errors'] : body['error'];
     if (error is String) {
-      return error.contains('ID token')
-          ? 'Opps!!! Something wrong just happened. If this persists, log out and login again'
+      return error.contains(RegExp('ID token', caseSensitive: false))
+          ? kLoginLogoutPrompt
           : error;
     }
     if (error is List<dynamic>) {
