@@ -1,0 +1,17 @@
+image:
+  name: eu.gcr.io/savannah-emr/fls-image:20.11.20
+
+stages:
+  - test
+
+SILGraphQLTests:
+  stage: test
+  timeout: 5 minutes
+  tags:
+    - healthcloud-multi
+  script:
+    - flutter pub get
+    - flutter analyze
+    - flutter test --coverage test
+    - genhtml -q -o coverage coverage/lcov.info
+    - python3 check_coverage.py 34.30
