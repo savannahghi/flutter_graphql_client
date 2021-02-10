@@ -1,0 +1,42 @@
+include: package:pedantic/analysis_options.yaml
+analyzer:
+  strong-mode:
+    implicit-dynamic: true
+  errors:
+    todo: ignore
+    sdk_version_async_exported_from_core: ignore
+    missing_required_param: error
+    missing_return: error
+  exclude:
+    - "lib/generated_plugin_*.dart"
+    - "bin/cache/**"
+
+linter:
+  rules:
+    prefer_single_quotes: true
+    always_declare_return_types: true
+    omit_local_variable_types: false
+    unnecessary_this: false
+    prefer_collection_literals: false
+    always_specify_types: true
+    valid_regexps: true
+    unnecessary_statements: true
+    unrelated_type_equality_checks: true
+    unnecessary_string_interpolations: true
+    unnecessary_string_escapes: true
+    unnecessary_parenthesis: true
+    unnecessary_null_in_if_null_operators: true
+    unnecessary_null_aware_assignments: true
+    unnecessary_new: true
+    unnecessary_const: true
+    unnecessary_brace_in_string_interps: true
+    tighten_type_of_initializing_formals: true
+    test_types_in_equals: true
+    slash_for_doc_comments: true
+    prefer_void_to_null: true
+    prefer_typing_uninitialized_variables: true
+    prefer_spread_collections: true
+    prefer_contains: true
+    prefer_adjacent_string_concatenation: true
+    package_api_docs: true
+    no_duplicate_case_values: true
