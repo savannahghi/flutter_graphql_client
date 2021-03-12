@@ -1,5 +1,5 @@
 image:
-  name: eu.gcr.io/savannah-emr/fls-image:20.11.20
+  name: eu.gcr.io/savannah-emr/fls-image:10-03-21-nullsafety
 
 stages:
   - test
@@ -12,6 +12,6 @@ SILGraphQLTests:
   script:
     - flutter pub get
     - flutter analyze
-    - flutter test --coverage test
+    - flutter test --coverage test   
     - genhtml -q -o coverage coverage/lcov.info
-    - python3 check_coverage.py 34.30
+    - python3 check_coverage.py
