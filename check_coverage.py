@@ -6,7 +6,7 @@ import sys
 
 from bs4 import BeautifulSoup
 
-THRESHOLD = 81.0
+THRESHOLD = 100.0
 
 current_dir = os.getcwd()
 coverage_file_path = os.path.join(current_dir, "coverage/index.html")
