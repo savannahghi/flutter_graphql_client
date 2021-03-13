@@ -5,8 +5,7 @@ stages:
   - test
 
 SILGraphQLTests:
-  stage: test
-  timeout: 5 minutes
+  stage: test  
   tags:
     - healthcloud-multi
   script:

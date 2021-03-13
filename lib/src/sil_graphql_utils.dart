@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:meta/meta.dart';
 
 import 'package:flutter/widgets.dart';
+import 'package:sil_graphql_client/graph_constants.dart';
 import 'package:sil_graphql_client/graph_event_bus.dart';
 
 import 'package:sil_graphql_client/src/i_sil_graphql_client.dart';
@@ -114,7 +115,7 @@ class SILGraphQlUtils {
     required BuildContext context,
     required String eventName,
     required Map<String, dynamic> payload,
-    required IEventBusDatabaseHelper dbHelper,
+    required IEventBusDatabaseHelper<EventBusDatabase> dbHelper,
     required ISILGraphQlClient client,
     required String userID,
     required String flavour,
@@ -167,7 +168,7 @@ class SILGraphQlUtils {
     required BuildContext context,
     required String eventName,
     required Map<String, dynamic> payload,
-    required IEventBusDatabaseHelper dbHelper,
+    required IEventBusDatabaseHelper<EventBusDatabase> dbHelper,
     required ISILGraphQlClient client,
     required String userID,
     required String flavour,
@@ -178,8 +179,8 @@ class SILGraphQlUtils {
       final String eventPayload = json.encode(payload);
 
       final Map<String, dynamic> row = <String, dynamic>{
-        dbHelper.columnName: eventName,
-        dbHelper.columnName: eventPayload
+        kColumnName: eventName,
+        kPayload: eventPayload
       };
 
       await dbHelper.insert(row);
