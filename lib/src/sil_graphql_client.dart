@@ -47,6 +47,7 @@ class SILGraphQlClient extends ISILGraphQlClient {
 /// ```
 ///
 class SimpleCall {
+  /// [callAPI] method to call graphQL API
   static Future<dynamic> callAPI({
     required String querystring,
     required Map<String, dynamic> variables,
@@ -54,6 +55,31 @@ class SimpleCall {
     bool raw = false,
   }) async {
     final Response result = await graphClient.query(querystring, variables);
+
+    // returns the raw http response without preprocessing
+    if (raw) {
+      return result;
+    }
+
+    final Map<String, dynamic> body = graphClient.toMap(result);
+
+    if (graphClient.parseError(body) != null) {
+      return <String, dynamic>{'error': graphClient.parseError(body)};
+    } else {
+      return body;
+    }
+  }
+
+  /// [callRestAPI] method to call REST API
+  static Future<dynamic> callRestAPI({
+    required String endpoint,
+    required String method,
+    required ISILGraphQlClient graphClient,
+    Map<String, dynamic>? variables,
+    bool raw = false,
+  }) async {
+    final Response result = await graphClient.callRESTAPI(
+        endpoint: endpoint, method: method, variables: variables);
 
     // returns the raw http response without preprocessing
     if (raw) {

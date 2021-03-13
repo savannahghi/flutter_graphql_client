@@ -132,6 +132,45 @@ void main() {
       expect(response, isNotNull);
       expect(response, <String, dynamic>{'error': 'no coverage'});
     });
+
+    test('should do a rest request', () async {
+      final Map<String, dynamic> expectedData = <String, dynamic>{
+        'errors': 'no coverage'
+      };
+
+      final MockSILGraphQlClient mockSilGraphQlClient =
+          generateMockGraphQLClient(expectedData);
+
+      final dynamic response = await SimpleCall.callRestAPI(
+        graphClient: mockSilGraphQlClient,
+        endpoint: 'https://test-api.rightbtc.com/v1/markets',
+        method: 'GET',
+      );
+
+      expect(response, isA<Map<String, dynamic>>());
+      expect(response, isNotNull);
+    });
+
+    test('should do a rest request with timeout', () async {
+      final Map<String, dynamic> expectedData = <String, dynamic>{
+        'errors': 'no coverage'
+      };
+
+      final MockSILGraphQlClient mockSilGraphQlClient =
+          generateMockGraphQLClient(expectedData);
+
+      final dynamic response = await SimpleCall.callRestAPI(
+        graphClient: mockSilGraphQlClient,
+        endpoint: 'http://192.168.1.202/index.php',
+        method: 'GET',
+      );
+
+      expect(response, isA<Map<String, dynamic>>());
+      expect(response, isNotNull);
+
+      expect(response['error'],
+          'Network connection unreliable. Please try again later.');
+    });
   });
 
   group('SILGraphQLClient', () {

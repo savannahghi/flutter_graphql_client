@@ -81,19 +81,39 @@ abstract class ISILGraphQlClient extends BaseClient {
         .timeout(
       const Duration(seconds: 10),
       onTimeout: () {
-        final String payload = json.encode(<String, dynamic>{
-          'statusCode': 408,
-          'error': 'Network connection unreliable. Please try again later.'
-        });
-
         return Response(
-          payload,
+          json.encode(kTimeoutResponsePayload),
           408,
           headers: contentType == ContentType.json
               ? this.requestHeaders
               : this.fileRequestHeaders,
         );
       },
+    );
+  }
+
+  /// [callRESTAPI] is used when making unauthenticated REST backend calls
+  Future<Response> callRESTAPI({
+    required String endpoint,
+    required String method,
+    Map<String, dynamic>? variables,
+  }) async {
+    final Request request = Request(method, this.fromUriOrString(endpoint));
+
+    request.body = json.encode(variables);
+    return Response.fromStream(
+      await this.send(request).timeout(
+        const Duration(seconds: kRequestTimeoutSeconds),
+        onTimeout: () {
+          final String timeoutInput = json.encode(kTimeoutResponsePayload);
+          final List<int> body = utf8.encode(timeoutInput);
+          return StreamedResponse(
+            ByteStream.fromBytes(body),
+            408,
+            headers: this.requestHeaders,
+          );
+        },
+      ),
     );
   }
 
