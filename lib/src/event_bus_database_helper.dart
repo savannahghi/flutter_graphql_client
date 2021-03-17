@@ -1,22 +1,19 @@
 import 'package:meta/meta.dart';
 import 'package:sil_graphql_client/graph_event_bus.dart';
+import 'package:sil_graphql_client/src/sqlite.dart';
 import 'package:sqflite/sqflite.dart';
 
 abstract class EventBusDatabase extends Database {}
 
 @sealed
-class EventBusDatabaseHelper extends IEventBusDatabaseHelper<EventBusDatabase> {
-  factory EventBusDatabaseHelper(
-      {required Future<EventBusDatabase> Function() initDatabase}) {
-    return _singleton(initDatabase);
+class EventBusDatabaseHelper<T extends DatabaseExecutor>
+    extends IEventBusDatabaseHelper<T> {
+  factory EventBusDatabaseHelper(Future<T> Function()? initDatabaseFunc) {
+    return EventBusDatabaseHelper<T>._(
+        initDatabaseFunc: initDatabaseFunc ?? initDatabase);
   }
 
-  EventBusDatabaseHelper._(
-      {required Future<EventBusDatabase> Function() initDatabase}) {
-    super.initDatabase = initDatabase;
+  EventBusDatabaseHelper._({required Future<T> Function() initDatabaseFunc}) {
+    super.initDatabase = initDatabaseFunc;
   }
-
-  static EventBusDatabaseHelper _singleton(
-          Future<EventBusDatabase> Function() initDatabase) =>
-      EventBusDatabaseHelper._(initDatabase: initDatabase);
 }

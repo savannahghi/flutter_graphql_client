@@ -6,10 +6,10 @@ import 'package:sqflite/sqflite.dart';
 
 import 'package:path/path.dart';
 
-Future<Database> initDatabase() async {
+Future<T> initDatabase<T extends DatabaseExecutor>() async {
   final Directory documentsDirectory = await getApplicationDocumentsDirectory();
   final String path = join(documentsDirectory.path, kDatabaseName);
-  return openDatabase(path, version: kDatabaseVersion, onCreate: onCreate);
+  return openDatabase(path, version: kDatabaseVersion, onCreate: onCreate) as T;
 }
 
 // SQL code to create the database table
