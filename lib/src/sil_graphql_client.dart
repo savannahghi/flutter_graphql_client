@@ -30,7 +30,7 @@ class SILGraphQlClient extends ISILGraphQlClient {
 /// the graphql server.
 ///
 /// By the time the call is made,its expected that [SILGraphQlClient]
-/// has occured. Other an authentication error will occur.
+/// has occurred. Other an authentication error will occur.
 ///
 /// All keyword arguments are required.
 ///
