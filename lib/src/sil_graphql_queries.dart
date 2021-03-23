@@ -5,7 +5,7 @@ query GenerateAndEmailOTP($msisdn: String!, $email: String) {
 }
 ''';
 
-/// sends an OTP through alternative means such as twilio and whatsapp
+/// sends an OTP through alternative means such as twilio and WhatsApp
 const String generateRetryOTPQuery = r'''
 query GenerateRetryOTP($msisdn: String!, $step: Int!) {
   generateRetryOTP(msisdn: $msisdn, retryStep: $step)

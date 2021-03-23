@@ -44,14 +44,14 @@ void main() {
         () async {
       const String expectedOtpErr = 'this is an otp error';
 
-      final Map<String, dynamic> validOtpErroorResponse = <String, dynamic>{
+      final Map<String, dynamic> validOtpErrorResponse = <String, dynamic>{
         'errors': <dynamic>[
           <String, dynamic>{'message': expectedOtpErr}
         ],
       };
 
       final MockSILGraphQlClient mockSilGraphQlClient =
-          generateMockGraphQLClient(validOtpErroorResponse);
+          generateMockGraphQLClient(validOtpErrorResponse);
 
       final String actualOtp = await SILGraphQlUtils().sendOtp(
           phoneNumber: phoneNumber,
@@ -64,12 +64,12 @@ void main() {
     test('should fail to send OTP with error as String', () async {
       const String expectedOtpErr = 'this is an otp error';
 
-      final Map<String, dynamic> validOtpErroorResponse = <String, dynamic>{
+      final Map<String, dynamic> validOtpErrorResponse = <String, dynamic>{
         'errors': expectedOtpErr,
       };
 
       final MockSILGraphQlClient mockSilGraphQlClient =
-          generateMockGraphQLClient(validOtpErroorResponse);
+          generateMockGraphQLClient(validOtpErrorResponse);
 
       final String actualOtp = await SILGraphQlUtils().sendOtp(
           phoneNumber: phoneNumber,
@@ -82,14 +82,14 @@ void main() {
     test('should fail to send retry OTP with an error occurs', () async {
       const String expectedOtpErr = 'this is an otp error';
 
-      final Map<String, dynamic> validOtpErroorResponse = <String, dynamic>{
+      final Map<String, dynamic> validOtpErrorResponse = <String, dynamic>{
         'errors': <dynamic>[
           <String, dynamic>{'message': expectedOtpErr}
         ],
       };
 
       final MockSILGraphQlClient mockSilGraphQlClient =
-          generateMockGraphQLClient(validOtpErroorResponse);
+          generateMockGraphQLClient(validOtpErrorResponse);
 
       final String actualOtp = await SILGraphQlUtils().generateRetryOtp(
           phoneNumber: phoneNumber, client: mockSilGraphQlClient, step: 1);

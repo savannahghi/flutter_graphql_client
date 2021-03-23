@@ -19,7 +19,7 @@ void main() {
           generateMockGraphQLClient(expectedData);
 
       final dynamic data = await SimpleCall.callAPI(
-        querystring: 'some-string',
+        queryString: 'some-string',
         variables: <String, dynamic>{},
         graphClient: mockSilGraphQlClient,
       );
@@ -38,7 +38,7 @@ void main() {
           generateMockGraphQLClient(expectedData);
 
       final dynamic response = await SimpleCall.callAPI(
-        querystring: 'some-string',
+        queryString: 'some-string',
         variables: <String, dynamic>{},
         graphClient: mockSilGraphQlClient,
         raw: true,
@@ -56,7 +56,7 @@ void main() {
         'some': 'data'
       };
 
-      const String validGaphQLQuery = '''
+      const String validGraphQLQuery = '''
         query UserInfo(\$id: ID!) {
           user(id: \$id) {
             id
@@ -69,7 +69,7 @@ void main() {
           generateMockGraphQLClient2(expectedData);
 
       final dynamic response = await SimpleCall.callAPI(
-        querystring: validGaphQLQuery,
+        queryString: validGraphQLQuery,
         variables: <String, dynamic>{},
         graphClient: mockSilGraphQlClient,
       );
@@ -86,7 +86,7 @@ void main() {
         'some': 'data'
       };
 
-      const String validGaphQLQuery = '''
+      const String validGraphQLQuery = '''
         query UserInfo(\$id: ID!) {
           user(id: \$id) {
             id
@@ -99,7 +99,7 @@ void main() {
           generateMockGraphQLClient2(expectedData);
 
       final Response response = await mockSilGraphQlClient.query(
-          validGaphQLQuery, <String, dynamic>{}, ContentType.form);
+          validGraphQLQuery, <String, dynamic>{}, ContentType.form);
 
       expect(response, isA<Response>());
       expect(response, isNotNull);
@@ -123,7 +123,7 @@ void main() {
           generateMockGraphQLClient(expectedData);
 
       final dynamic response = await SimpleCall.callAPI(
-        querystring: 'some-string',
+        queryString: 'some-string',
         variables: <String, dynamic>{},
         graphClient: mockSilGraphQlClient,
       );
@@ -179,7 +179,7 @@ void main() {
       url: testURL,
     );
 
-    const String validGaphQLQuery = '''
+    const String validGraphQLQuery = '''
           query UserInfo(\$id: ID!) {
             user(id: \$id) {
               id
@@ -244,7 +244,7 @@ void main() {
     test('should throw [Exception] if Variable param is not a valid map',
         () async {
       expect(
-        () async => validClient.query(validGaphQLQuery, validBody),
+        () async => validClient.query(validGraphQLQuery, validBody),
         throwsA(isA<Exception>()),
       );
     });

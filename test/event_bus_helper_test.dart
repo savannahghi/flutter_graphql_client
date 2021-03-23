@@ -7,7 +7,7 @@ import 'test_utils.dart';
 void main() {
   group('EventBusDatabaseHelper ', () {
     test(
-        'should instatiate EventBusDatabaseHelper with initDatabaseFunc passed',
+        'should instantiate EventBusDatabaseHelper with initDatabaseFunc passed',
         () async {
       final EventBusDatabaseHelper<EventBusDatabase> helper =
           EventBusDatabaseHelper<EventBusDatabase>(initMockDatabase);
@@ -18,7 +18,7 @@ void main() {
     });
 
     test(
-        'should instatiate EventBusDatabaseHelper without initDatabaseFunc been passed',
+        'should instantiate EventBusDatabaseHelper without initDatabaseFunc been passed',
         () async {
       expect(() => EventBusDatabaseHelper<Database>(null), returnsNormally);
     });

@@ -34,7 +34,7 @@ class SILGraphQlClient extends ISILGraphQlClient {
 ///
 /// All keyword arguments are required.
 ///
-/// if [variables] is no required, map an empty `map` insted of null
+/// if [variables] is no required, map an empty `map` instead of null
 ///
 /// [graphClient] argument should be a valid instance of [SILGraphQlClient]
 ///
@@ -49,12 +49,12 @@ class SILGraphQlClient extends ISILGraphQlClient {
 class SimpleCall {
   /// [callAPI] method to call graphQL API
   static Future<dynamic> callAPI({
-    required String querystring,
+    required String queryString,
     required Map<String, dynamic> variables,
     required ISILGraphQlClient graphClient,
     bool raw = false,
   }) async {
-    final Response result = await graphClient.query(querystring, variables);
+    final Response result = await graphClient.query(queryString, variables);
 
     // returns the raw http response without preprocessing
     if (raw) {

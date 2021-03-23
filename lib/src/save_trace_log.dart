@@ -6,7 +6,7 @@ import 'package:sil_graphql_client/graph_client.dart';
 import 'package:sil_graphql_client/src/sil_graphql_queries.dart';
 
 /// post the variables and response to server for debug tracing
-/// this will be useful when huntiong for notorious debugs.
+/// this will be useful when hunting for notorious debugs.
 /// The trace will be raw hence it should be be truncated in anyway
 class SaveTraceLog {
   SaveTraceLog({

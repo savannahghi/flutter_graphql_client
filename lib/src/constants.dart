@@ -1,5 +1,5 @@
 const String kLoginLogoutPrompt =
-    'Opps!!! Something wrong just happened. If this persists, log out and login again';
+    'Oops!!! Something wrong just happened. If this persists, log out and login again';
 
 const String kDatabaseName = 'EventBus.db';
 const int kDatabaseVersion = 1;
