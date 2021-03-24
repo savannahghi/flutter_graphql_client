@@ -38,13 +38,6 @@ abstract class ISILGraphQlClient extends BaseClient {
   Uri fromUriOrString(dynamic uri) =>
       uri is String ? Uri.parse(uri) : uri as Uri;
 
-  Map<String, String> get fileRequestHeaders {
-    return <String, String>{
-      'Authorization': 'Bearer ${this.idToken}',
-      'content-type': 'application/x-www-form-urlencoded'
-    };
-  }
-
   Map<String, String> get requestHeaders {
     return <String, String>{
       'Authorization': 'Bearer ${this.idToken}',
@@ -59,8 +52,10 @@ abstract class ISILGraphQlClient extends BaseClient {
     return _res as Map<String, dynamic>;
   }
 
-  Future<Response> query(String queryString, Map<String, dynamic> variables,
-      [ContentType contentType = ContentType.json]) async {
+  Future<Response> query(
+    String queryString,
+    Map<String, dynamic> variables,
+  ) async {
     if (!this.checkQueryString(queryString)) {
       return throw const FormatException(
           'The provided query string is malformed');
@@ -71,11 +66,10 @@ abstract class ISILGraphQlClient extends BaseClient {
       'variables': variables,
     };
 
-    return this.postWithTimeout(bodyMap, contentType);
+    return this.postWithTimeout(bodyMap);
   }
 
-  Future<Response> postWithTimeout(
-      Map<String, dynamic> bodyMap, ContentType contentType) {
+  Future<Response> postWithTimeout(Map<String, dynamic> bodyMap) {
     return this
         .post(fromUriOrString(this.endpoint), body: json.encode(bodyMap))
         .timeout(
@@ -84,9 +78,7 @@ abstract class ISILGraphQlClient extends BaseClient {
         return Response(
           json.encode(kTimeoutResponsePayload),
           408,
-          headers: contentType == ContentType.json
-              ? this.requestHeaders
-              : this.fileRequestHeaders,
+          headers: this.requestHeaders,
         );
       },
     );

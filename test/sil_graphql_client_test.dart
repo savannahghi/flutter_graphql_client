@@ -81,39 +81,6 @@ void main() {
           'Network connection unreliable. Please try again later.');
     });
 
-    test('should timeout with form content type', () async {
-      final Map<String, dynamic> expectedData = <String, dynamic>{
-        'some': 'data'
-      };
-
-      const String validGraphQLQuery = '''
-        query UserInfo(\$id: ID!) {
-          user(id: \$id) {
-            id
-            name
-          }
-        }
-      ''';
-
-      final MockSILGraphQlClient2 mockSilGraphQlClient =
-          generateMockGraphQLClient2(expectedData);
-
-      final Response response = await mockSilGraphQlClient.query(
-          validGraphQLQuery, <String, dynamic>{}, ContentType.form);
-
-      expect(response, isA<Response>());
-      expect(response, isNotNull);
-
-      final Map<String, dynamic> body = mockSilGraphQlClient.toMap(response);
-
-      final Map<String, dynamic> err = <String, dynamic>{
-        'error': mockSilGraphQlClient.parseError(body)
-      };
-
-      expect(err['error'],
-          'Network connection unreliable. Please try again later.');
-    });
-
     test('should correctly parse an error', () async {
       final Map<String, dynamic> expectedData = <String, dynamic>{
         'errors': 'no coverage'
@@ -263,10 +230,6 @@ void main() {
     test(
         'Given a valid SIL GraphQL client\'s getters when called on a valid should the appropriate return values should be returned',
         () {
-      expect(validClient.fileRequestHeaders, <String, String>{
-        'Authorization': 'Bearer $testToken',
-        'content-type': 'application/x-www-form-urlencoded'
-      });
       expect(validClient.requestHeaders, <String, String>{
         'Authorization': 'Bearer $testToken',
         'content-type': 'application/json'
