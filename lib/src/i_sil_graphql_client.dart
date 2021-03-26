@@ -73,7 +73,7 @@ abstract class ISILGraphQlClient extends BaseClient {
     return this
         .post(fromUriOrString(this.endpoint), body: json.encode(bodyMap))
         .timeout(
-      const Duration(seconds: 10),
+      const Duration(seconds: kRequestTimeoutSeconds),
       onTimeout: () {
         return Response(
           json.encode(kTimeoutResponsePayload),

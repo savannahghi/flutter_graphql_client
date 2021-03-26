@@ -10,7 +10,7 @@ const String kColumnId = '_id';
 const String kColumnName = 'eventName';
 const String kPayload = 'payload';
 
-const int kRequestTimeoutSeconds = 10;
+const int kRequestTimeoutSeconds = 25;
 const Map<String, dynamic> kTimeoutResponsePayload = <String, dynamic>{
   'statusCode': 408,
   'error': 'Network connection unreliable. Please try again later.'
