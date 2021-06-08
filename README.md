@@ -1,37 +1,5 @@
 # sil_graphql_client
 
-This package implements functions to make API calls. This blends both GRAPHQL and REST.
-Since graphql make this bulk of this package, the name of the package favours.
+`sil_graphql_client` is an open source project &mdash; it's one among many other shared libraries that make up the wider ecosystem of software made and open sourced by `Savannah Informatics Limited`.
 
-### Making GRAPHQL calls
-
-```dart
-final dynamic data = await SimpleCall.callAPI(
-    querystring: 'valid-query-string' ,
-    variables: <String, dynamic>{'pay':'load'},
-    graphClient: silGraphQlClientInstance ,
-)
-```
-
-### Making REST calls
-
-GET
-
-```dart
-final dynamic data = await SimpleCall.callRestAPI(
-    endpoint: 'http://example.com/test' ,
-    method: 'GET',
-    graphClient: silGraphQlClientInstance ,
-)
-```
-
-POST
-
-```dart
-final dynamic data = await SimpleCall.callRestAPI(
-    endpoint: 'http://example.com/test' ,
-    method: 'POST',
-    variables: <String, dynamic>{'pay':'load'},
-    graphClient: silGraphQlClientInstance ,
-)
-```
+It is a shared library between [BeWell-Consumer] and [BeWell-Professional] and is responsible for putting together everything that these app needs in order to run safely. It is like a small preflight check.
