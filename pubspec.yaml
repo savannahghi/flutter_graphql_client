@@ -1,8 +1,10 @@
-name: sil_graphql_client
+name: flutter_graphql_client
 description: Client to POST to GraphQL server
-version: 0.0.1
-author: dmwangi@savannahinformatics.com
-homepage: https://gitlab.slade360emr.com/optimalhealth/sil_dart_utils
+version: 0.1.01
+homepage: https://github.com/savannahghi/flutter_graphql_client
+repository: https://github.com/savannahghi/flutter_graphql_client
+issue_tracker: https://github.com/savannahghi/flutter_graphql_client/issues
+documentation: https://github.com/savannahghi/flutter_graphql_client/blob/main/doc/readme.md
 
 environment:
   sdk: '>=2.12.0 <3.0.0'  

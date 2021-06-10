@@ -1,8 +1,8 @@
-### [0.0.18]
+### 0.1.01
 
-* chore: lengthen timeout period
+* infra: prep for publish on pub
 
-### Pre - [0.0.9] 
+### Pre - [0.1.0] 
 
 * Code testing, refactor and upgrading design system for sil_graphql_client on both apps
 * Assorted bug fixes and enhancements

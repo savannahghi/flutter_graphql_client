@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
-import 'package:sil_graphql_client/graph_event_bus.dart';
+import 'package:flutter_graphql_client/graph_event_bus.dart';
 
 import 'mocks.dart';
 

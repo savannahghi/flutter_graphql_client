@@ -1,6 +1,6 @@
 library sil_graphql_client;
 
-import 'package:sil_graphql_client/graph_constants.dart';
+import 'package:flutter_graphql_client/graph_constants.dart';
 import 'package:sqflite/sqflite.dart';
 
 abstract class IEventBusDatabaseHelper<T extends DatabaseExecutor> {

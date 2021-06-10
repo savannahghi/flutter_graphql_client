@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:meta/meta.dart';
 
 import 'package:http/http.dart';
-import 'package:sil_graphql_client/graph_client.dart';
+import 'package:flutter_graphql_client/graph_client.dart';
 
 /// [SILGraphQlClient] the main entry point client creation
 ///

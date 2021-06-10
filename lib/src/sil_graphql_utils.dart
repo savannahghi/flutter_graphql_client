@@ -3,14 +3,14 @@ import 'dart:convert';
 import 'package:meta/meta.dart';
 
 import 'package:flutter/widgets.dart';
-import 'package:sil_graphql_client/graph_constants.dart';
-import 'package:sil_graphql_client/graph_event_bus.dart';
+import 'package:flutter_graphql_client/graph_constants.dart';
+import 'package:flutter_graphql_client/graph_event_bus.dart';
 
-import 'package:sil_graphql_client/src/i_sil_graphql_client.dart';
-import 'package:sil_graphql_client/src/save_trace_log.dart';
+import 'package:flutter_graphql_client/src/i_sil_graphql_client.dart';
+import 'package:flutter_graphql_client/src/save_trace_log.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:sil_graphql_client/src/sil_graphql_queries.dart';
+import 'package:flutter_graphql_client/src/sil_graphql_queries.dart';
 
 @sealed
 class SILGraphQlUtils {

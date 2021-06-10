@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart';
 import 'package:mockito/mockito.dart';
-import 'package:sil_graphql_client/graph_client.dart';
-import 'package:sil_graphql_client/graph_event_bus.dart';
+import 'package:flutter_graphql_client/graph_client.dart';
+import 'package:flutter_graphql_client/graph_event_bus.dart';
 import 'package:sqflite/sqflite.dart';
 
 class MockBuildContext extends Mock implements BuildContext {}

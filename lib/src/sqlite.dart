@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:path_provider/path_provider.dart';
-import 'package:sil_graphql_client/graph_constants.dart';
+import 'package:flutter_graphql_client/graph_constants.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'package:path/path.dart';

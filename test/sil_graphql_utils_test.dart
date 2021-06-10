@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:sil_graphql_client/src/sil_graphql_utils.dart';
+import 'package:flutter_graphql_client/src/sil_graphql_utils.dart';
 import 'package:test/test.dart';
 
 import './test_utils.dart';
