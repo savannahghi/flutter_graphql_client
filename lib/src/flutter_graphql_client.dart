@@ -1,4 +1,4 @@
-library sil_graphql_client;
+library flutter_graphql_client;
 
 import 'dart:async';
 import 'package:meta/meta.dart';

@@ -1,4 +1,4 @@
-library sil_graphql_client;
+library flutter_graphql_client;
 
 import 'package:flutter_graphql_client/graph_constants.dart';
 import 'package:sqflite/sqflite.dart';
