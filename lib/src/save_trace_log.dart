@@ -1,9 +1,9 @@
-library sil_graphql_client;
+library flutter_graphql_client;
 
 import 'dart:convert';
 
-import 'package:flutter_graphql_client/graph_client.dart';
-import 'package:flutter_graphql_client/src/sil_graphql_queries.dart';
+import 'package:flutter_graphql_client/src/flutter_graphql_queries.dart';
+import 'package:flutter_graphql_client/src/i_flutter_graphql_client.dart';
 
 /// post the variables and response to server for debug tracing
 /// this will be useful when hunting for notorious debugs.

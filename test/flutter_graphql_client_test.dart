@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:http/http.dart';
 import 'package:flutter_graphql_client/graph_client.dart';
 import 'package:flutter_graphql_client/graph_constants.dart';
+import 'package:http/http.dart';
 import 'package:test/test.dart';
 
-import './test_utils.dart';
 import 'mocks.dart';
+import 'test_utils.dart';
 
 void main() {
   group('SimpleCall', () {
@@ -140,7 +140,7 @@ void main() {
     });
   });
 
-  group('SILGraphQLClient', () {
+  group('FlutterGraphQLClient', () {
     final SILGraphQlClient validClient = SILGraphQlClient(
       token: testToken,
       url: testURL,

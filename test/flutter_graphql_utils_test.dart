@@ -1,12 +1,12 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_graphql_client/src/sil_graphql_utils.dart';
+import 'package:flutter_graphql_client/src/flutter_graphql_utils.dart';
 import 'package:test/test.dart';
 
-import './test_utils.dart';
 import 'mocks.dart';
+import 'test_utils.dart';
 
 void main() {
-  group('SILGraphQlUtils', () {
+  group('FlutterGraphQLUtils', () {
     const String phoneNumber = '+25471234567';
 
     test('should send OTP', () async {
