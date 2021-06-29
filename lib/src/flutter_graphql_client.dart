@@ -1,7 +1,6 @@
 library flutter_graphql_client;
 
 import 'dart:async';
-import 'package:meta/meta.dart';
 
 import 'package:http/http.dart';
 import 'package:flutter_graphql_client/graph_client.dart';
@@ -11,19 +10,11 @@ import 'package:flutter_graphql_client/graph_client.dart';
 /// This class is a singleton which ensues that the same object can
 /// be referenced multiple times in the app
 ///
-@sealed
 class SILGraphQlClient extends ISILGraphQlClient {
-  factory SILGraphQlClient({required String token, required String url}) {
-    return _singleton(token, url);
-  }
-
-  SILGraphQlClient._(String idToken, String endpoint) {
+  SILGraphQlClient(String idToken, String endpoint) {
     super.idToken = idToken;
     super.endpoint = endpoint;
   }
-
-  static SILGraphQlClient _singleton(String idToken, String endpoint) =>
-      SILGraphQlClient._(idToken, endpoint);
 }
 
 /// [SimpleCall] exposes a minimal way make quickly make a call to
