@@ -142,8 +142,8 @@ void main() {
 
   group('FlutterGraphQLClient', () {
     final SILGraphQlClient validClient = SILGraphQlClient(
-      token: testToken,
-      url: testURL,
+      testToken,
+      testURL,
     );
 
     const String validGraphQLQuery = '''
