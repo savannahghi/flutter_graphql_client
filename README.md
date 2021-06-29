@@ -1,3 +1,6 @@
+[![Release](https://img.shields.io/badge/Version-^0.1.20-red.svg?style=for-the-badge)](https://shields.io/)
+[![Maintained](https://img.shields.io/badge/Maintained-Actively-informational.svg?style=for-the-badge)](https://shields.io/)
+
 # flutter_graphql_client
 
 `flutter_graphql_client` is an open source project &mdash; it's one among many other shared libraries that make up the wider ecosystem of software made and open sourced by `Savannah Informatics Limited`.
@@ -23,7 +26,7 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 
 ```dart
 dependencies:
-  flutter_graphql_client: ^0.1.01
+  flutter_graphql_client: ^0.1.20
 ```
 
 Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn more.

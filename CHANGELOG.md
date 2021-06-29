@@ -1,3 +1,7 @@
+### 0.1.20
+
+- fix: graphql client 
+
 ### 0.1.01
 
 - infra: prep for publish on pub
