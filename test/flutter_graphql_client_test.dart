@@ -100,24 +100,6 @@ void main() {
       expect(response, <String, dynamic>{'error': 'no coverage'});
     });
 
-    test('should do a rest request', () async {
-      final Map<String, dynamic> expectedData = <String, dynamic>{
-        'errors': 'no coverage'
-      };
-
-      final MockSILGraphQlClient mockSilGraphQlClient =
-          generateMockGraphQLClient(expectedData);
-
-      final dynamic response = await SimpleCall.callRestAPI(
-        graphClient: mockSilGraphQlClient,
-        endpoint: 'https://test-api.rightbtc.com/v1/markets',
-        method: 'GET',
-      );
-
-      expect(response, isA<Map<String, dynamic>>());
-      expect(response, isNotNull);
-    });
-
     test('should do a rest request with timeout', () async {
       final Map<String, dynamic> expectedData = <String, dynamic>{
         'errors': 'no coverage'
