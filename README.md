@@ -1,4 +1,4 @@
-[![Release](https://img.shields.io/badge/Version-^0.1.20-red.svg?style=for-the-badge)](https://shields.io/)
+[![Release](https://img.shields.io/badge/Version-^0.1.21-red.svg?style=for-the-badge)](https://shields.io/)
 [![Maintained](https://img.shields.io/badge/Maintained-Actively-informational.svg?style=for-the-badge)](https://shields.io/)
 
 # flutter_graphql_client
@@ -26,7 +26,7 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 
 ```dart
 dependencies:
-  flutter_graphql_client: ^0.1.20
+  flutter_graphql_client: ^0.1.21
 ```
 
 Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn more.
@@ -47,7 +47,7 @@ import 'package:flutter_graphql_client/graph_client.dart';
 final dynamic data = await SimpleCall.callAPI(
     querystring: 'valid-query-string' ,
     variables: <String, dynamic>{'pay':'load'},
-    graphClient: silGraphQlClientInstance ,
+    graphClient: graphQlClientInstance ,
 )
 ```
 
@@ -59,7 +59,7 @@ GET
 final dynamic data = await SimpleCall.callRestAPI(
     endpoint: 'http://example.com/test' ,
     method: 'GET',
-    graphClient: silGraphQlClientInstance ,
+    graphClient: graphQlClientInstance ,
 )
 ```
 
@@ -70,6 +70,6 @@ final dynamic data = await SimpleCall.callRestAPI(
     endpoint: 'http://example.com/test' ,
     method: 'POST',
     variables: <String, dynamic>{'pay':'load'},
-    graphClient: silGraphQlClientInstance ,
+    graphClient: graphQlClientInstance ,
 )
 ```

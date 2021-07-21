@@ -44,7 +44,7 @@ import 'package:flutter_graphql_client/graph_client.dart';
 final dynamic data = await SimpleCall.callAPI(
     querystring: 'valid-query-string' ,
     variables: <String, dynamic>{'pay':'load'},
-    graphClient: silGraphQlClientInstance ,
+    graphClient: graphQlClientInstance ,
 )
 ```
 
@@ -56,7 +56,7 @@ GET
 final dynamic data = await SimpleCall.callRestAPI(
     endpoint: 'http://example.com/test' ,
     method: 'GET',
-    graphClient: silGraphQlClientInstance ,
+    graphClient: graphQlClientInstance ,
 )
 ```
 
@@ -67,6 +67,6 @@ final dynamic data = await SimpleCall.callRestAPI(
     endpoint: 'http://example.com/test' ,
     method: 'POST',
     variables: <String, dynamic>{'pay':'load'},
-    graphClient: silGraphQlClientInstance ,
+    graphClient: graphQlClientInstance ,
 )
 ```

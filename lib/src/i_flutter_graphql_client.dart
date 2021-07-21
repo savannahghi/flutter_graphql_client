@@ -10,12 +10,12 @@ import 'package:source_span/source_span.dart';
 
 enum ContentType { json, form }
 
-/// [ISILGraphQlClient] is the blueprint of a valid GraphQL client.
+/// [IGraphQlClient] is the blueprint of a valid GraphQL client.
 /// To construct a graphQL client, extend this class. This class provide
 /// out of the box implementation of client methods but they can be overridden.
 /// Best use case for overriding is when defining a mock client. Check [mocks.dart]
 /// for a concrete mocking implementation.
-abstract class ISILGraphQlClient extends BaseClient {
+abstract class IGraphQlClient extends BaseClient {
   late String idToken;
   late String endpoint;
 

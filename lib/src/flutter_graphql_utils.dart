@@ -29,7 +29,7 @@ class SILGraphQlUtils {
   Future<String> sendOtp({
     required String phoneNumber,
     required String logTitle,
-    required ISILGraphQlClient client,
+    required IGraphQlClient client,
     String? logDescription,
     String? email,
     bool sendToEmailOnly = false,
@@ -78,7 +78,7 @@ class SILGraphQlUtils {
   Future<String> generateRetryOtp({
     required String phoneNumber,
     required int step,
-    required ISILGraphQlClient client,
+    required IGraphQlClient client,
   }) async {
     final Map<String, dynamic> _variables = <String, dynamic>{
       'msisdn': phoneNumber,
@@ -116,7 +116,7 @@ class SILGraphQlUtils {
     required String eventName,
     required Map<String, dynamic> payload,
     required IEventBusDatabaseHelper<EventBusDatabase> dbHelper,
-    required ISILGraphQlClient client,
+    required IGraphQlClient client,
     required String userID,
     required String flavour,
     String organizationID = 'UNKNOWN',
@@ -169,7 +169,7 @@ class SILGraphQlUtils {
     required String eventName,
     required Map<String, dynamic> payload,
     required IEventBusDatabaseHelper<EventBusDatabase> dbHelper,
-    required ISILGraphQlClient client,
+    required IGraphQlClient client,
     required String userID,
     required String flavour,
     required Map<String, dynamic> logResponse,
