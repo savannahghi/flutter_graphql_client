@@ -17,7 +17,7 @@ void main() {
       final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(validOtpResponse);
 
-      final String actualOtp = await SILGraphQlUtils().sendOtp(
+      final String actualOtp = await GraphQlUtils().sendOtp(
           phoneNumber: phoneNumber,
           logTitle: 'send otp',
           client: mockGraphQlClient,
@@ -34,7 +34,7 @@ void main() {
       final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(validOtpResponse);
 
-      final String actualOtp = await SILGraphQlUtils().generateRetryOtp(
+      final String actualOtp = await GraphQlUtils().generateRetryOtp(
           phoneNumber: phoneNumber, client: mockGraphQlClient, step: 1);
 
       expect(actualOtp, validOtpResponse['data']['generateRetryOTP']);
@@ -53,7 +53,7 @@ void main() {
       final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(validOtpErrorResponse);
 
-      final String actualOtp = await SILGraphQlUtils().sendOtp(
+      final String actualOtp = await GraphQlUtils().sendOtp(
           phoneNumber: phoneNumber,
           logTitle: 'send otp',
           client: mockGraphQlClient);
@@ -71,7 +71,7 @@ void main() {
       final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(validOtpErrorResponse);
 
-      final String actualOtp = await SILGraphQlUtils().sendOtp(
+      final String actualOtp = await GraphQlUtils().sendOtp(
           phoneNumber: phoneNumber,
           logTitle: 'send otp',
           client: mockGraphQlClient);
@@ -91,7 +91,7 @@ void main() {
       final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(validOtpErrorResponse);
 
-      final String actualOtp = await SILGraphQlUtils().generateRetryOtp(
+      final String actualOtp = await GraphQlUtils().generateRetryOtp(
           phoneNumber: phoneNumber, client: mockGraphQlClient, step: 1);
 
       expect(actualOtp, expectedOtpErr);
@@ -110,7 +110,7 @@ void main() {
       final BuildContext context = MockBuildContext();
 
       expect(
-          SILGraphQlUtils().sendEvent(
+          GraphQlUtils().sendEvent(
               context: context,
               client: mockGraphQlClient,
               dbHelper: dbHelper,
@@ -134,7 +134,7 @@ void main() {
       final BuildContext context = MockBuildContext();
 
       expect(
-          SILGraphQlUtils().sendEvent(
+          GraphQlUtils().sendEvent(
               context: context,
               client: mockGraphQlClient,
               dbHelper: dbHelper,
@@ -158,7 +158,7 @@ void main() {
       final BuildContext context = MockBuildContext();
 
       expect(
-          SILGraphQlUtils().processSendEventsResponse(
+          GraphQlUtils().processSendEventsResponse(
               logResponse: validSendResponse,
               context: context,
               client: mockGraphQlClient,
