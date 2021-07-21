@@ -36,7 +36,6 @@ class GraphQlClient extends IGraphQlClient {
 ///  SimpleCall.callAPI(context, virtualCards, {},  SILAppWrapperBase.of(context).graphQLClient)
 ///
 /// ```
-///
 class SimpleCall {
   /// [callAPI] method to call graphQL API
   static Future<dynamic> callAPI({

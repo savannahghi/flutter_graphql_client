@@ -13,7 +13,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_graphql_client/src/flutter_graphql_queries.dart';
 
 @sealed
-class SILGraphQlUtils {
+class GraphQlUtils {
   /// a function that sends a verification code to a phone
   ///
   /// @params

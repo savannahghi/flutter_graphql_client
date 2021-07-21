@@ -1,3 +1,7 @@
+### 0.1.22
+
+- doc: documentation fixes and example
+
 ### 0.1.21
 
 - chore: update class names
