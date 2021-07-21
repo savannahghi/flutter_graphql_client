@@ -5,13 +5,13 @@ import 'dart:async';
 import 'package:http/http.dart';
 import 'package:flutter_graphql_client/graph_client.dart';
 
-/// [SILGraphQlClient] the main entry point client creation
+/// [GraphQlClient] the main entry point client creation
 ///
 /// This class is a singleton which ensues that the same object can
 /// be referenced multiple times in the app
 ///
-class SILGraphQlClient extends ISILGraphQlClient {
-  SILGraphQlClient(String idToken, String endpoint) {
+class GraphQlClient extends IGraphQlClient {
+  GraphQlClient(String idToken, String endpoint) {
     super.idToken = idToken;
     super.endpoint = endpoint;
   }
@@ -20,14 +20,14 @@ class SILGraphQlClient extends ISILGraphQlClient {
 /// [SimpleCall] exposes a minimal way make quickly make a call to
 /// the graphql server.
 ///
-/// By the time the call is made,its expected that [SILGraphQlClient]
+/// By the time the call is made,its expected that [GraphQlClient]
 /// has occurred. Other an authentication error will occur.
 ///
 /// All keyword arguments are required.
 ///
 /// if [variables] is no required, map an empty `map` instead of null
 ///
-/// [graphClient] argument should be a valid instance of [SILGraphQlClient]
+/// [graphClient] argument should be a valid instance of [GraphQlClient]
 ///
 /// Example
 ///
@@ -42,7 +42,7 @@ class SimpleCall {
   static Future<dynamic> callAPI({
     required String queryString,
     required Map<String, dynamic> variables,
-    required ISILGraphQlClient graphClient,
+    required IGraphQlClient graphClient,
     bool raw = false,
   }) async {
     final Response result = await graphClient.query(queryString, variables);
@@ -65,7 +65,7 @@ class SimpleCall {
   static Future<dynamic> callRestAPI({
     required String endpoint,
     required String method,
-    required ISILGraphQlClient graphClient,
+    required IGraphQlClient graphClient,
     Map<String, dynamic>? variables,
     bool raw = false,
   }) async {

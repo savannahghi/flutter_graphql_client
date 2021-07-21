@@ -1,3 +1,7 @@
+### 0.1.21
+
+- chore: update class names
+
 ### 0.1.20
 
 - fix: graphql client 

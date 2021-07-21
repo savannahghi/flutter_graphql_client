@@ -14,13 +14,13 @@ void main() {
         'data': <String, dynamic>{'generateAndEmailOTP': '123456'}
       };
 
-      final MockSILGraphQlClient mockSilGraphQlClient =
+      final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(validOtpResponse);
 
       final String actualOtp = await SILGraphQlUtils().sendOtp(
           phoneNumber: phoneNumber,
           logTitle: 'send otp',
-          client: mockSilGraphQlClient,
+          client: mockGraphQlClient,
           email: 'savannah@healthcloud.co.ke');
 
       expect(actualOtp, validOtpResponse['data']['generateAndEmailOTP']);
@@ -31,11 +31,11 @@ void main() {
         'data': <String, dynamic>{'generateRetryOTP': '123456'}
       };
 
-      final MockSILGraphQlClient mockSilGraphQlClient =
+      final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(validOtpResponse);
 
       final String actualOtp = await SILGraphQlUtils().generateRetryOtp(
-          phoneNumber: phoneNumber, client: mockSilGraphQlClient, step: 1);
+          phoneNumber: phoneNumber, client: mockGraphQlClient, step: 1);
 
       expect(actualOtp, validOtpResponse['data']['generateRetryOTP']);
     });
@@ -50,13 +50,13 @@ void main() {
         ],
       };
 
-      final MockSILGraphQlClient mockSilGraphQlClient =
+      final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(validOtpErrorResponse);
 
       final String actualOtp = await SILGraphQlUtils().sendOtp(
           phoneNumber: phoneNumber,
           logTitle: 'send otp',
-          client: mockSilGraphQlClient);
+          client: mockGraphQlClient);
 
       expect(actualOtp, expectedOtpErr);
     });
@@ -68,13 +68,13 @@ void main() {
         'errors': expectedOtpErr,
       };
 
-      final MockSILGraphQlClient mockSilGraphQlClient =
+      final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(validOtpErrorResponse);
 
       final String actualOtp = await SILGraphQlUtils().sendOtp(
           phoneNumber: phoneNumber,
           logTitle: 'send otp',
-          client: mockSilGraphQlClient);
+          client: mockGraphQlClient);
 
       expect(actualOtp, expectedOtpErr);
     });
@@ -88,11 +88,11 @@ void main() {
         ],
       };
 
-      final MockSILGraphQlClient mockSilGraphQlClient =
+      final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(validOtpErrorResponse);
 
       final String actualOtp = await SILGraphQlUtils().generateRetryOtp(
-          phoneNumber: phoneNumber, client: mockSilGraphQlClient, step: 1);
+          phoneNumber: phoneNumber, client: mockGraphQlClient, step: 1);
 
       expect(actualOtp, expectedOtpErr);
     });
@@ -102,7 +102,7 @@ void main() {
         'data': <String, dynamic>{'processEvent': true}
       };
 
-      final MockSILGraphQlClient mockSilGraphQlClient =
+      final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(validSendResponse);
 
       final MockEventBusDatabaseHelper dbHelper = MockEventBusDatabaseHelper();
@@ -112,7 +112,7 @@ void main() {
       expect(
           SILGraphQlUtils().sendEvent(
               context: context,
-              client: mockSilGraphQlClient,
+              client: mockGraphQlClient,
               dbHelper: dbHelper,
               eventName: 'test',
               flavour: 'pro',
@@ -126,7 +126,7 @@ void main() {
         'data': <String, dynamic>{'processEvent': true}
       };
 
-      final MockSILGraphQlClient mockSilGraphQlClient =
+      final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(validSendResponse);
 
       final MockEventBusDatabaseHelper dbHelper = MockEventBusDatabaseHelper();
@@ -136,7 +136,7 @@ void main() {
       expect(
           SILGraphQlUtils().sendEvent(
               context: context,
-              client: mockSilGraphQlClient,
+              client: mockGraphQlClient,
               dbHelper: dbHelper,
               eventName: 'test',
               flavour: 'pro',
@@ -150,7 +150,7 @@ void main() {
         'data': <String, dynamic>{'processEvent': false}
       };
 
-      final MockSILGraphQlClient mockSilGraphQlClient =
+      final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(validSendResponse);
 
       final MockEventBusDatabaseHelper dbHelper = MockEventBusDatabaseHelper();
@@ -161,7 +161,7 @@ void main() {
           SILGraphQlUtils().processSendEventsResponse(
               logResponse: validSendResponse,
               context: context,
-              client: mockSilGraphQlClient,
+              client: mockGraphQlClient,
               dbHelper: dbHelper,
               eventName: 'test',
               flavour: 'pro',

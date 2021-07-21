@@ -95,8 +95,8 @@ class MockEventBusDatabase implements EventBusDatabase {
       1;
 }
 
-class MockSILGraphQlClient extends ISILGraphQlClient {
-  MockSILGraphQlClient.withResponse(
+class MockGraphQlClient extends IGraphQlClient {
+  MockGraphQlClient.withResponse(
       String idToken, String endpoint, this.response) {
     super.idToken = idToken;
     super.endpoint = endpoint;
@@ -110,10 +110,10 @@ class MockSILGraphQlClient extends ISILGraphQlClient {
       this.response;
 }
 
-// [MockSILGraphQlClient2] adds a timeout in its query method.
+// [MockGraphQlClient2] adds a timeout in its query method.
 // useful for testing timeouts
-class MockSILGraphQlClient2 extends ISILGraphQlClient {
-  MockSILGraphQlClient2.withResponse(
+class MockGraphQlClient2 extends IGraphQlClient {
+  MockGraphQlClient2.withResponse(
       String idToken, String endpoint, this.response) {
     super.idToken = idToken;
     super.endpoint = endpoint;

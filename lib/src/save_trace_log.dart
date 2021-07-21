@@ -23,7 +23,7 @@ class SaveTraceLog {
   final dynamic response;
   final String title;
   final String? description;
-  final ISILGraphQlClient client;
+  final IGraphQlClient client;
   void saveLog() {
     final Map<String, dynamic> traceObj = <String, dynamic>{
       'query': query,

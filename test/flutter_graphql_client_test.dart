@@ -15,13 +15,13 @@ void main() {
         'some_data': 'no coverage'
       };
 
-      final MockSILGraphQlClient mockSilGraphQlClient =
+      final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(expectedData);
 
       final dynamic data = await SimpleCall.callAPI(
         queryString: 'some-string',
         variables: <String, dynamic>{},
-        graphClient: mockSilGraphQlClient,
+        graphClient: mockGraphQlClient,
       );
 
       expect(data, isA<Map<String, dynamic>>());
@@ -34,13 +34,13 @@ void main() {
         'some_data': 'no coverage'
       };
 
-      final MockSILGraphQlClient mockSilGraphQlClient =
+      final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(expectedData);
 
       final dynamic response = await SimpleCall.callAPI(
         queryString: 'some-string',
         variables: <String, dynamic>{},
-        graphClient: mockSilGraphQlClient,
+        graphClient: mockGraphQlClient,
         raw: true,
       );
 
@@ -65,13 +65,13 @@ void main() {
         }
       ''';
 
-      final MockSILGraphQlClient2 mockSilGraphQlClient =
+      final MockGraphQlClient2 mockGraphQlClient =
           generateMockGraphQLClient2(expectedData);
 
       final dynamic response = await SimpleCall.callAPI(
         queryString: validGraphQLQuery,
         variables: <String, dynamic>{},
-        graphClient: mockSilGraphQlClient,
+        graphClient: mockGraphQlClient,
       );
 
       expect(response, isA<Map<String, dynamic>>());
@@ -86,13 +86,13 @@ void main() {
         'errors': 'no coverage'
       };
 
-      final MockSILGraphQlClient mockSilGraphQlClient =
+      final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(expectedData);
 
       final dynamic response = await SimpleCall.callAPI(
         queryString: 'some-string',
         variables: <String, dynamic>{},
-        graphClient: mockSilGraphQlClient,
+        graphClient: mockGraphQlClient,
       );
 
       expect(response, isA<Map<String, dynamic>>());
@@ -105,11 +105,11 @@ void main() {
         'errors': 'no coverage'
       };
 
-      final MockSILGraphQlClient mockSilGraphQlClient =
+      final MockGraphQlClient mockGraphQlClient =
           generateMockGraphQLClient(expectedData);
 
       final dynamic response = await SimpleCall.callRestAPI(
-        graphClient: mockSilGraphQlClient,
+        graphClient: mockGraphQlClient,
         endpoint: 'http://192.168.1.202/index.php',
         method: 'GET',
       );
@@ -123,7 +123,7 @@ void main() {
   });
 
   group('FlutterGraphQLClient', () {
-    final SILGraphQlClient validClient = SILGraphQlClient(
+    final GraphQlClient validClient = GraphQlClient(
       testToken,
       testURL,
     );
