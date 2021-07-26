@@ -1,3 +1,7 @@
+### 0.1.23
+
+- chore: remove trace log
+
 ### 0.1.22
 
 - doc: documentation fixes and example
