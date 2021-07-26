@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter_graphql_client/src/flutter_graphql_utils.dart';
 import 'package:test/test.dart';
 
@@ -95,79 +94,6 @@ void main() {
           phoneNumber: phoneNumber, client: mockGraphQlClient, step: 1);
 
       expect(actualOtp, expectedOtpErr);
-    });
-
-    test('should send event', () async {
-      final Map<String, dynamic> validSendResponse = <String, dynamic>{
-        'data': <String, dynamic>{'processEvent': true}
-      };
-
-      final MockGraphQlClient mockGraphQlClient =
-          generateMockGraphQLClient(validSendResponse);
-
-      final MockEventBusDatabaseHelper dbHelper = MockEventBusDatabaseHelper();
-
-      final BuildContext context = MockBuildContext();
-
-      expect(
-          GraphQlUtils().sendEvent(
-              context: context,
-              client: mockGraphQlClient,
-              dbHelper: dbHelper,
-              eventName: 'test',
-              flavour: 'pro',
-              payload: <String, dynamic>{'payload': 'test'},
-              userID: ''),
-          isA<void>());
-    });
-
-    test('should send event', () async {
-      final Map<String, dynamic> validSendResponse = <String, dynamic>{
-        'data': <String, dynamic>{'processEvent': true}
-      };
-
-      final MockGraphQlClient mockGraphQlClient =
-          generateMockGraphQLClient(validSendResponse);
-
-      final MockEventBusDatabaseHelper dbHelper = MockEventBusDatabaseHelper();
-
-      final BuildContext context = MockBuildContext();
-
-      expect(
-          GraphQlUtils().sendEvent(
-              context: context,
-              client: mockGraphQlClient,
-              dbHelper: dbHelper,
-              eventName: 'test',
-              flavour: 'pro',
-              payload: <String, dynamic>{'payload': 'test'},
-              userID: ''),
-          isA<void>());
-    });
-
-    test('should send event', () async {
-      final Map<String, dynamic> validSendResponse = <String, dynamic>{
-        'data': <String, dynamic>{'processEvent': false}
-      };
-
-      final MockGraphQlClient mockGraphQlClient =
-          generateMockGraphQLClient(validSendResponse);
-
-      final MockEventBusDatabaseHelper dbHelper = MockEventBusDatabaseHelper();
-
-      final BuildContext context = MockBuildContext();
-
-      expect(
-          GraphQlUtils().processSendEventsResponse(
-              logResponse: validSendResponse,
-              context: context,
-              client: mockGraphQlClient,
-              dbHelper: dbHelper,
-              eventName: 'test',
-              flavour: 'pro',
-              payload: <String, dynamic>{'payload': 'test'},
-              userID: ''),
-          isA<void>());
     });
   });
 }

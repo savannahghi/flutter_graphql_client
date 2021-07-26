@@ -26,25 +26,6 @@ query GenerateOTP($msisdn: String!) {
 }
  ''';
 
-const String postTraceLog = r'''
-mutation Trace($title:String!, $description: String!, $traces: [String!]! ){
-  logDebugInfo(title: $title, description: $description, traces: $traces)
-}
-''';
-
-// sends events to the backend
-const String processEvents = r'''
-mutation processEvent(
-  $flavour: Flavour!
-  $event: EventInput!
-){
-  processEvent(
-    flavour: $flavour
-    event: $event
-  )
-}
-''';
-
 /// verifies the email sent from [generateEmailOTPQuery]. It updates the [isEmailVerified]
 /// bool in the user's firebase profile
 const String verifyEmailOTPQuery = r'''
