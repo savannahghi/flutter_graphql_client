@@ -1,3 +1,6 @@
+### 0.1.24
+
+- chore: update version
 ### 0.1.23
 
 - chore: remove trace log
