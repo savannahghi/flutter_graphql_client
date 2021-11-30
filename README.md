@@ -1,4 +1,4 @@
-[![Release](https://img.shields.io/badge/Version-^0.1.23-red.svg?style=for-the-badge)](https://shields.io/)
+[![Release](https://img.shields.io/badge/Version-^0.1.24-red.svg?style=for-the-badge)](https://shields.io/)
 [![Maintained](https://img.shields.io/badge/Maintained-Actively-informational.svg?style=for-the-badge)](https://shields.io/)
 
 # flutter_graphql_client
@@ -26,7 +26,7 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 
 ```dart
 dependencies:
-  flutter_graphql_client: ^0.1.23
+  flutter_graphql_client: ^0.1.24
 ```
 
 Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn more.

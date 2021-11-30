@@ -1,3 +1,7 @@
+### 0.1.24
+
+- chore: increase timeout
+
 ### 0.1.23
 
 - chore: remove trace log

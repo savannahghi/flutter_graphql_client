@@ -1,3 +1,5 @@
+@Timeout(Duration(seconds: 60))
+
 import 'dart:convert';
 
 import 'package:flutter_graphql_client/graph_client.dart';
