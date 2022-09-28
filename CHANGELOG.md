@@ -1,3 +1,8 @@
+### 0.2.0
+
+- chore: upgrade to flutter 3.0.5
+- feat: setup automated deploy to pub.dev
+
 ### 0.1.24
 
 - chore: increase timeout
