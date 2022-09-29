@@ -5,6 +5,7 @@ analyzer:
     implicit-dynamic: true
   errors:
     todo: ignore
+    directives_ordering: ignore
     sdk_version_async_exported_from_core: ignore
     missing_required_param: error
     missing_return: error
