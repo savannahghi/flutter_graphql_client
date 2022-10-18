@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:http/http.dart';
-
-import 'package:gql/language.dart' as lang;
-import 'package:gql/ast.dart' as ast;
 import 'package:flutter_graphql_client/src/constants.dart';
+import 'package:gql/ast.dart' as ast;
+import 'package:gql/language.dart' as lang;
+import 'package:http/http.dart';
 import 'package:source_span/source_span.dart';
 
 enum ContentType { json, form }

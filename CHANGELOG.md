@@ -1,3 +1,7 @@
+### 0.2.2
+
+- feat: setup automated deployment to pub.dev
+
 ### 0.2.1
 
 - fix: fix decoding issue
@@ -25,13 +29,13 @@
 
 ### 0.1.20
 
-- fix: graphql client 
+- fix: graphql client
 
 ### 0.1.01
 
 - infra: prep for publish on pub
 
-### Pre - [0.1.0] 
+### Pre - [0.1.0]
 
 - Code testing, refactor and upgrading design system for flutter_graphql_client on both apps
 - Assorted bug fixes and enhancements

@@ -1,10 +1,9 @@
 import 'dart:async';
-import 'package:meta/meta.dart';
 
-import 'package:flutter_graphql_client/src/i_flutter_graphql_client.dart';
-
-import 'package:http/http.dart' as http;
 import 'package:flutter_graphql_client/src/flutter_graphql_queries.dart';
+import 'package:flutter_graphql_client/src/i_flutter_graphql_client.dart';
+import 'package:http/http.dart' as http;
+import 'package:meta/meta.dart';
 
 @sealed
 class GraphQlUtils {
