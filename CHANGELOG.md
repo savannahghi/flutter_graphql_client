@@ -1,3 +1,7 @@
+### 0.2.1
+
+- fix: fix decoding issue
+
 ### 0.2.0
 
 - chore: upgrade to flutter 3.0.5
