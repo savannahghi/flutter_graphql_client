@@ -1,6 +1,6 @@
 name: flutter_graphql_client
 description: Client to POST to GraphQL server
-version: 0.2.0
+version: 0.2.1
 homepage: https://github.com/savannahghi/flutter_graphql_client
 repository: https://github.com/savannahghi/flutter_graphql_client
 issue_tracker: https://github.com/savannahghi/flutter_graphql_client/issues

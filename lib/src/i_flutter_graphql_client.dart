@@ -47,7 +47,7 @@ abstract class IGraphQlClient extends BaseClient {
 
   Map<String, dynamic> toMap(Response? response) {
     if (response == null) return <String, dynamic>{};
-    final dynamic _res = json.decode(response.body);
+    final dynamic _res = json.decode(utf8.decode(response.bodyBytes));
     if (_res is List<dynamic>) return _res[0] as Map<String, dynamic>;
     return _res as Map<String, dynamic>;
   }
